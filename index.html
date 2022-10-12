@@ -4,10 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Suya</title>
 </head>
 <body>
+    <div class="header">
+    <header>Suya, An Adventurous Food Search</header>
+    </div>
+    <div class="container1">
+        <div class="column">
+        <input type="search" id="search">
+        <button>Search</button>
+        </div>
+    </div>
+    <iframe width="650" height="450" frameborder="0" style="border:0" referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&q=japaneserestaurants" allowfullscreen>
+    </iframe>
+    <div class="container2">
+        <div class="tryItOut">
+            <h2 id="rName"></h2>
+            <p id="foodType"></p>
+            <p id="hours"></p>
+            <p id="reviews"></p>   
+        </div>
+        <div class="cards"></div>
+    </div>
+
     <script src="./assets/js/script.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 </html>
