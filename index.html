@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Suya</title>
-</head>
-<body>
+  </head>
+  <body>
+    <section>
+      <p type="button">
+        Allow Suya to use your location?
+        <input class="button" type="button" value="Yes" />
+      </p>
+      <p id="nudge">
+        Suya only works if it knows where to look for your next tasy
+        adventure...
+      </p>
+      <p id="startLat"></p>
+      <p id="startLon"></p>
+    </section>
+    <section id="map"></section>
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&libraries=places&callback=initMap"
+    ></script>
     <script src="./assets/js/script.js"></script>
-</body>
+  </body>
 </html>
