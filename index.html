@@ -21,10 +21,28 @@
       <p id="startLon"></p>
     </section>
     <section id="map"></section>
-    <script
-      async
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&libraries=places&callback=initMap"
-    ></script>
+    <div id="container">
+      <div id="map"></div>
+      <div id="sidebar">
+        <h2>Results</h2>
+        <ul id="places"></ul>
+        <button id="results">Load more results</button>
+      </div>
+    </div>
+    <iframe
+      width="650"
+      height="450"
+      frameborder="0"
+      style="border: 0"
+      referrerpolicy="no-referrer-when-downgrade"
+      src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&q=restaurants"
+      allowfullscreen
+    >
+    </iframe>
+    <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&callback=initMap&libraries=places&v=weekly"
+      defer
+    ></script> -->
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
