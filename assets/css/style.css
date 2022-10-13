@@ -1,3 +1,11 @@
-#nudge {
-    display: none;
+.header {
+padding: 60px;
+text-align: center;
+background-color: chartreuse;
+color: indigo;
+font-size: 25px;
+font-family: Arial, Helvetica, sans-serif;
+}
+.container1 {
+  text-align: left;
 }

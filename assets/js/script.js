@@ -1,44 +1,126 @@
-if (!navigator.geolocation) {
-  console.error(`Your browser doesn't support Geolocation`);
-}
+var startSearch = document.getElementById('findFood')
 
-//=======button asking permission to access the user's location================
-var button = document.querySelector(".button");
+startSearch.addEventListener('click', findRestaurant)
 
-button.onclick = function () {
-  var startPos;
-  var nudge = document.getElementById("nudge");
-
-  var showNudgeBanner = function () {
-    nudge.style.display = "block";
-  };
-
-  var hideNudgeBanner = function () {
-    nudge.style.display = "none";
-  };
-
-  var nudgeTimeoutId = setTimeout(showNudgeBanner, 3000);
-
-  var geoSuccess = function (position) {
-    hideNudgeBanner();
-    // We have the location, don't display banner
-    clearTimeout(nudgeTimeoutId);
-
-    // Do magic with location
-    startPos = position;
-    document.getElementById("startLat").innerHTML = startPos.coords.latitude;
-    document.getElementById("startLon").innerHTML = startPos.coords.longitude;
-  };
-  var geoError = function (error) {
-    switch (error.code) {
-      case error.TIMEOUT:
-        // The user didn't accept the callout
-        showNudgeBanner();
-        break;
-    }
-  };
-
-  navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+function findRestaurant(){
+    startSearch.classList.add('hide')
+    questionContainer.classList.remove('hide')
+    nextPromt()
 };
 
-//============API function=================
+var questions = [
+    {
+        question: 'Would you like to have thai food?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Have you tried italian food lately?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'How does fried chicken sound?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Is it pizza night?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Are you in the mood for sushi?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Has it been a while since you have had chinese food?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'How does seafood sound?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Want to find the nearest hispanic restaurant?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Have you ever tried nigerian cuisine?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Icecream for dinner?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Want to find out what russian food is like?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Have you ever been to a french eatery?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Want to try some sort of food fusion?',
+        answer: [
+            { text: 'yes' ,correct: true},
+            { text: 'no' ,correct: false}
+        ]
+    }
+
+]
+
+var Api = key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc 
+function revealCards(restaurants){
+    fetch("https://www.google.com/maps/embed/v1/search?"+Api+"&q="+GenreRestaurant)
+    .then((function(response) {
+        if(response.ok){
+            response.json()
+            .then(function (data) {
+                console.log(data)
+                let suya = 0
+                for (let i = 0; i < cards.length; i++) {
+                    cards[i].style.opacity = 1
+                    var cardResaurantName = cards[i].querySelector(".restaurantName")
+                    var cardGenre = cards[i].querySelector(".genre")
+                   // var cardHours = cards[i].querySelector(".hours")
+                   // var cardLocation = cards[i].querySelector(".location")
+                    cardResaurantName.innerHTML= data.list[suya];
+                    cardGenre.innerHTML="Genre: " + data.list[suya];
+                   // cardHours.innerHTML="Hours of Operation: " + data.list[suya];
+                   // cardLocation.innerHTML="Location: " + data.list[suya];
+                }})}}))};
+

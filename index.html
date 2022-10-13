@@ -1,48 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./assets/css/style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Suya</title>
-  </head>
-  <body>
-    <section>
-      <p type="button">
-        Allow Suya to use your location?
-        <input class="button" type="button" value="Yes" />
-      </p>
-      <p id="nudge">
-        Suya only works if it knows where to look for your next tasy
-        adventure...
-      </p>
-      <p id="startLat"></p>
-      <p id="startLon"></p>
-    </section>
-    <section id="map"></section>
-    <div id="container">
-      <div id="map"></div>
-      <div id="sidebar">
-        <h2>Results</h2>
-        <ul id="places"></ul>
-        <button id="results">Load more results</button>
-      </div>
+</head>
+<body>
+    <div class="header">
+    <header>Suya, An Adventurous Food Search</header>
     </div>
-    <iframe
-      width="650"
-      height="450"
-      frameborder="0"
-      style="border: 0"
-      referrerpolicy="no-referrer-when-downgrade"
-      src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&q=restaurants"
-      allowfullscreen
-    >
+    <div class="container1">
+        <div class="column">
+        <input type="search" id="search">
+        <button>Search</button>
+        </div>
+    </div>
+    <iframe width="650" height="450" frameborder="0" style="border:0" referrerpolicy="no-referrer-when-downgrade"
+    src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&q=japaneserestaurants" allowfullscreen>
     </iframe>
-    <!-- <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&callback=initMap&libraries=places&v=weekly"
-      defer
-    ></script> -->
+    <div class="container2">
+        <div class="tryItOut">
+            <h2 id="rName"></h2>
+            <p id="foodType"></p>
+            <p id="hours"></p>
+            <p id="reviews"></p>   
+        </div>
+        <div class="cards"></div>
+    </div>
+
     <script src="./assets/js/script.js"></script>
-  </body>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
 </html>
