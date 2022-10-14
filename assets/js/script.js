@@ -1,14 +1,18 @@
 var startSearch = document.getElementById('findFood')
-
+var mixedprompt,promptindex
 startSearch.addEventListener('click', findRestaurant)
 
 function findRestaurant(){
     startSearch.classList.add('hide')
-    questionContainer.classList.remove('hide')
-    nextPromt()
+    promptindex = 0
+    questionsElement.classList.remove('hide')
+    nextPrompt()
 };
 
-var questions = [
+function getNextPrompt()  {
+    nextPrompt()
+}
+var prompt = [
     {
         question: 'Would you like to have thai food?',
         answer: [
@@ -31,7 +35,7 @@ var questions = [
         ]
     }
     ,{
-        question: 'Is it pizza night?',
+        question: 'Is it a pizza night?',
         answer: [
             { text: 'yes' ,correct: true},
             { text: 'no' ,correct: false}
@@ -102,10 +106,10 @@ var questions = [
     }
 
 ]
-
+var genreRestaurant;
 var Api = key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc 
 function revealCards(restaurants){
-    fetch("https://www.google.com/maps/embed/v1/search?"+Api+"&q="+GenreRestaurant)
+    fetch("https://www.google.com/maps/embed/v1/search?"+Api+"&q="+genreRestaurant)
     .then((function(response) {
         if(response.ok){
             response.json()
