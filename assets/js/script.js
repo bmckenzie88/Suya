@@ -8,6 +8,51 @@ startSearch.addEventListener('click', findRestaurant)
 
 sweet.addEventListener('click', yeahYeah)
 meh.addEventListener('click', reduceArray)
+var factList = document.querySelector('ul')
+var startBtn = document.querySelector('try-it-out-btn')
+var foodGenre = "spanish"
+
+factList.setAttribute("style", "list-style: none")
+
+function getAPI() {
+  var requestURL = 'https://restcountries.com/v3.1/demonym/'+foodGenre+'?fields=name,population,currencies,capital,flag'
+    
+  fetch(requestURL)
+        .then(function (response) {
+          return response.json();
+        })
+
+        .then(function (data) {
+          console.log(data)
+          var nameData = Object.values(data[0].name)
+          console.log(nameData[0])
+          var objectData = Object.values(data[0])
+          console.log(objectData)
+          var currencyData = Object.values(objectData[1])
+          console.log(currencyData)
+          var currencyData1 = Object.values(currencyData[0])
+          var capitalData = Object.values(objectData[2])
+          console.log(capitalData)
+          
+          var name = nameData[0]
+          var population = document.createElement('li')
+          var currency = document.createElement('li')
+          var capitalCity = document.createElement('li')
+          var flag = document.createElement('li')
+
+          population.textContent = "The population of " + name + " is " + objectData[4]
+          currency.textContent = "The official currency of " + name + " is the " + currencyData1[0]
+          capitalCity.textContent = "The capital of " + name + " is " + capitalData[0]
+          flag.textContent = "The national flag of " + name + " looks like this: " + objectData[3]
+
+          factList.append(population)
+          factList.append(currency)
+          factList.append(capitalCity)
+          factList.append(flag)
+        })
+
+}
+getAPI();
 
 var prompts = [
     {
