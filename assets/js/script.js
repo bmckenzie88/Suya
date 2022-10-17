@@ -11,11 +11,7 @@ startSearch.addEventListener("click", function(){
     meh.setAttribute("style","display:block")
     
 })
-sweet.addEventListener("click", yeahYeah, function(){
-    sweet.setAttribute("style","display:none")
-    meh.setAttribute("style","display:none")
-    countryFacts.setAttribute("style","display:block")
-});
+sweet.addEventListener("click", yeahYeah);
 meh.addEventListener("click", reduceArray);
 var factList = document.querySelector("ul");
 var startBtn = document.querySelector("try-it-out-btn");
@@ -45,10 +41,7 @@ function yeahYeah() {
     "restaurants";
 
   function getAPI() {
-    var requestURL =
-      "https://restcountries.com/v3.1/demonym/" +
-      genreRestaurant +
-      "?fields=name,population,currencies,capital,flag";
+    var requestURL ="https://restcountries.com/v3.1/demonym/"+genreRestaurant+"?fields=name,population,currencies,capital,flag";
 
     fetch(requestURL)
       .then(function (response) {
@@ -233,7 +226,7 @@ var prompts = [
     ],
   },
   {
-    question: "Try malay dining.",
+    question: "Try malay dining?",
     answer: [
       { text: "I will try", correct: true, genre: "malay" },
       { nope: "No", correct: false },
@@ -242,7 +235,7 @@ var prompts = [
   {
     question: "You really should find out if your into saudi arabian food.",
     answer: [
-      { text: "Yes", correct: true, genre: "saudi+arabian" },
+      { text: "ok!", correct: true, genre: "saudi+arabian" },
       { nope: "Or no", correct: false },
     ],
   },
@@ -290,4 +283,4 @@ function displayTimeDate() {
     displayTimeDate();
   }, 1000);
 }
-            
+displayTimeDate()            
