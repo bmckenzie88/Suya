@@ -1,36 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="./assets/css/materialize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Neucha&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+    ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Suya</title>
   </head>
-  <body>
-    <div class="header">
-      <header>Suya, An Adventurous Food Search</header>
+  <body class="background-img container white-text">
+    <div class="header row">
+      <header class="col s12 white-text center">
+        <h1>Suya</h1>
+        <h6>An Adventurous Food Search</h6>
+      </header>
     </div>
-    <div class="container1">
-        <div id="questions" class="hidden"> 
-        <button id="start">Try It Out</button>
+    <main>
+      <div class="row">
+        <h2><div class="col s4 white-text time-date"></div></h2>
+      </div>
+      <div class="row">
+        <div class="col s12 m4 l3">
+          <div class="container1">
+            <div id="questions" class="hidden center-align">
+              <a class="waves-effect waves-light btn-large" id="start"
+                >Let's go!</a
+              >
+            </div>
+          </div>
+          <div class="container2" id="answers">
+            <a class="waves-effect waves-light btn-large" id="button1"
+                >yes</a>
+            <a class="waves-effect waves-light btn-large" id="button2"
+                >no</a>
+          </div>
+          <div>
+            <h3 class="country-facts white-text">Did you know?</h3>
+            <ul></ul>
+          </div>
         </div>
-    </div>
-    <div class="country-info">
-      <h2>Did you know?</h2>
-      <ul></ul>
-    </div>
-    </div id="answers" class="container2">
-        <button id="button1" class="eh">yes</button>
-        <button id="button2" class="eh">meh</button>
-    </div>
-    <iframe width="650" height="450" frameborder="0" style="border:0" referrerpolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&q=japaneserestaurants" allowfullscreen>
-    </iframe>
 
+        <div class="col s12 m8 l9">
+          <iframe
+            height="450"
+            width="100%"
+            frameborder="0"
+            style="border: 0"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc&q=japaneserestaurants"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+    </main>
+    <script src="./assets/js/materialize.js"></script>
     <script src="./assets/js/script.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-</body>
+  </body>
 </html>
