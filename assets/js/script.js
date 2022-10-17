@@ -5,10 +5,15 @@ var reply = document.getElementById("answers");
 var sweet = document.getElementById("button1");
 var meh = document.getElementById("button2");
 var countryFacts = document.querySelector(".country-facts")
+var modal = document.querySelector("#modal")
+var modalYes = document.querySelector("#modalYes")
+var modalNo = document.querySelector("#modalNo")
+var modalBackground = document.querySelector("#modalBackground")
 startSearch.addEventListener("click", findRestaurant);
 startSearch.addEventListener("click", function(){
     sweet.setAttribute("style","display:block")
     meh.setAttribute("style","display:block")
+>>>>>>>>> Temporary merge branch 2
     
 })
 sweet.addEventListener("click", yeahYeah);
@@ -16,21 +21,8 @@ meh.addEventListener("click", reduceArray);
 var factList = document.querySelector("ul");
 var startBtn = document.querySelector("try-it-out-btn");
 
-
-
-
-//var successCallback = (position) =>{
-//var long =position.coords.longitude;
-//var lat =position.coords.latitude
-// console.log(position.coords.longitude)
-//console.log(position.coords.latitude)
-//}
-
-// navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-//var errorCallback;
-
 function yeahYeah() {
-  var genreRestaurant = mixedprompt[promptindex].answer[0].genre;
+    var genreRestaurant = mixedprompt[promptindex].answer[0].genre;
   var api = "key=AIzaSyCViMaXKSeOarMsUDhAY2LpvrNz2cssUHc";
   var iframe = document.querySelector("iframe");
   iframe.src =
@@ -39,15 +31,15 @@ function yeahYeah() {
     "&q=" +
     genreRestaurant +
     "restaurants";
-
   function getAPI() {
-    var requestURL ="https://restcountries.com/v3.1/demonym/"+genreRestaurant+"?fields=name,population,currencies,capital,flag";
-
+    var requestURL =
+      "https://restcountries.com/v3.1/demonym/" +
+      genreRestaurant +
+      "?fields=name,population,currencies,capital,flag";
     fetch(requestURL)
       .then(function (response) {
         return response.json();
       })
-
       .then(function (data) {
         console.log(data);
         var nameData = Object.values(data[0].name);
@@ -59,13 +51,11 @@ function yeahYeah() {
         var currencyData1 = Object.values(currencyData[0]);
         var capitalData = Object.values(objectData[2]);
         console.log(capitalData);
-
         var name = nameData[0];
         var population = document.createElement("li");
         var currency = document.createElement("li");
         var capitalCity = document.createElement("li");
         var flag = document.createElement("li");
-
         population.textContent =
           "The population of " + name + " is " + objectData[4];
         currency.textContent =
@@ -74,12 +64,10 @@ function yeahYeah() {
           "The capital of " + name + " is " + capitalData[0];
         flag.textContent =
           "The national flag of " + name + " looks like this: " + objectData[3];
-
         factList.append(population);
         factList.append(currency);
         factList.append(capitalCity);
         factList.append(flag);
-
       });
   }
   getAPI();
@@ -207,7 +195,7 @@ var prompts = [
   {
     question: "Want to eat kosher today?",
     answer: [
-      { text: "Why not", correct: true, genre: "jewish" },
+      { text: "Why not", correct: true, genre: "isreali" },
       { nope: "Not Really", correct: false },
     ],
   },
@@ -247,33 +235,27 @@ var prompts = [
     ],
   },
 ];
-
 function reduceArray() {
   console.log(mixedprompt);
   mixedprompt.splice(0, 1);
   console.log(mixedprompt);
   findRestaurant();
 }
-
 function findRestaurant() {
   mixedprompt = prompts.sort(() => Math.random() - 0.5);
   promptindex = 0;
   tryItOut.classList.remove("hide");
   nextPrompt();
 }
-
 function nextPrompt() {
   revealPrompt(mixedprompt[promptindex]);
 }
-
 function revealPrompt(prompt) {
   tryItOut.innerText = prompt.question;
   button1.innerText = prompt.answer[0].text;
   button2.innerText = prompt.answer[1].nope;
 }
-
 function latlong() {}
-
 // ========display date and time=============
 function displayTimeDate() {
   var timeDate = moment().format("MMM Do,  h:mm a");
@@ -283,4 +265,24 @@ function displayTimeDate() {
     displayTimeDate();
   }, 1000);
 }
-displayTimeDate()            
+displayTimeDate()
+
+modalYes.addEventListener("click", closeModal)
+modalNo.addEventListener('click', keepModal)
+
+function closeModal() {
+    modal.style.display = "none"
+    modalBackground.style.display = "none"
+    var successCallback = (position) =>{
+        var long =position.coords.longitude;
+        var lat =position.coords.latitude
+        console.log(position.coords.longitude)
+        console.log(position.coords.latitude)
+        }
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    var errorCallback;
+}
+
+function keepModal(){
+    alert("You must allow Suya your location in order to use the page.")
+}
