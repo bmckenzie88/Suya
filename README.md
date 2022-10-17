@@ -1,26 +1,17 @@
-# Suya
-a delicious repo for a delicious app
+# Suya:
+A new dining experience.
+## Description:
+Suya is an app designed to expand the pallet and knowledge of the user.  It isn't so much an app that allows the user to search for a restaurant, so much as an app that presents the user with questions about the foods they like and what they are open to trying.  As soon as the user approves of anything the map will locate restaurants that fit that parameter.  At the same time facts about the country of origin and its peoples will occupy a space to the left of the map.  The display was built with Materialize, the questions and prompts are kept in javascript and appear randomly, the array of prompts is reduced with each question, so the same question is never asked more than once.  The current time and date are displayed at the top of the screen.
+## Screenshots:
+![deployedAPP](./assets/images/deployedAPP.jpeg)
+![google-maps-embed-api-fetch](./assets/images/google-maps-embed-api-fetch.png)
+![materialize-html](./assets/images/materialize-html.png)
+![prompt-function](./assets/images/prompt-function.png)
+![prompts-array](./assets/images/prompts-array.png)
+![css](./assets/images/css.png)
 
-## User Story
+## Links:
+github repo: https://github.com/bmckenzie88/suya
 
-AS A hungry person who is also adventerous 
+deployed site: https://bmckenzie88.github.io/suya/
 
-I WANT to eat out somewhere i haven't tried yet
-
-So THAT I am no longer hungry and also a bit more cultured
-
-## Acceptance Criteria
-
-GIVEN I am on the home page
-
-WHEN I enter my locale information
-
-THEN I will be asked if I have ever tried a certain genre/restaurant
-
-WHEN I respond "yes" 
-
-THEN I will be asked if i have tried a different genre/restaurant before
-
-WHEN I respond "no" 
-
-THEN I will be recommended a restaurant nearby so that i can try something new
