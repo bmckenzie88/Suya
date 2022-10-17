@@ -1,3 +1,4 @@
+test-api
 var startSearch = document.getElementById("start");
 let mixedprompt, promptindex;
 var tryItOut = document.getElementById("questions");
@@ -9,6 +10,7 @@ startSearch.addEventListener("click", findRestaurant);
 startSearch.addEventListener("click", function(){
     sweet.setAttribute("style","display:block")
     meh.setAttribute("style","display:block")
+
     
 })
 sweet.addEventListener("click", yeahYeah, function(){
@@ -19,6 +21,7 @@ sweet.addEventListener("click", yeahYeah, function(){
 meh.addEventListener("click", reduceArray);
 var factList = document.querySelector("ul");
 var startBtn = document.querySelector("try-it-out-btn");
+
 
 
 
@@ -90,6 +93,7 @@ function yeahYeah() {
       });
   }
   getAPI();
+
 }
 var prompts = [
   {
@@ -277,6 +281,10 @@ function revealPrompt(prompt) {
   tryItOut.innerText = prompt.question;
   button1.innerText = prompt.answer[0].text;
   button2.innerText = prompt.answer[1].nope;
+}
+   
+function latlong() {
+ 
 }
 
 function latlong() {}
