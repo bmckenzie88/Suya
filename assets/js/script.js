@@ -290,4 +290,4 @@ function displayTimeDate() {
     displayTimeDate();
   }, 1000);
 }
-displayTimeDate();
+            
