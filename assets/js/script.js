@@ -5,7 +5,6 @@ var reply = document.getElementById('answers')
 var sweet = document.getElementById('button1')
 var meh = document.getElementById('button2')
 startSearch.addEventListener('click', findRestaurant)
-
 sweet.addEventListener('click', yeahYeah)
 meh.addEventListener('click', reduceArray)
 var factList = document.querySelector('ul')
@@ -13,6 +12,19 @@ var startBtn = document.querySelector('try-it-out-btn')
 var foodGenre = "spanish"
 
 factList.setAttribute("style", "list-style: none")
+
+//var successCallback = (position) =>{
+    //var long =position.coords.longitude;
+    //var lat =position.coords.latitude
+   // console.log(position.coords.longitude)
+    //console.log(position.coords.latitude)
+    //}
+
+   // navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    //var errorCallback;
+
+
+
 
 function getAPI() {
   var requestURL = 'https://restcountries.com/v3.1/demonym/'+foodGenre+'?fields=name,population,currencies,capital,flag'
@@ -70,23 +82,23 @@ var prompts = [
         ]
     }
     ,{
-        question: 'How does fried chicken sound?',
+        question: 'How does filipino fried chicken sound?',
         answer: [
-            { text: 'Awesome' ,correct: true, genre: "fried+chicken"},
+            { text: 'Awesome' ,correct: true, genre: "filipino"},
             { nope: 'Real Greasy' ,correct: false}
         ]
     }
     ,{
-        question: 'Is it a pizza night?',
+        question: 'Have you ever had food from spain?',
         answer: [
-            { text: 'Could Be' ,correct: true, genre: "pizza"},
+            { text: 'Could Be' ,correct: true, genre: "spanish"},
             { nope: 'No' ,correct: false}
         ]
     }
     ,{
-        question: 'Are you in the mood for sushi?',
+        question: 'Are you in the mood for japanese cuisine?',
         answer: [
-            { text: 'Yep' ,correct: true, genre: "sushi"},
+            { text: 'Yep' ,correct: true, genre: "japanese"},
             { nope: 'Never' ,correct: false}
         ]
     }
@@ -98,16 +110,16 @@ var prompts = [
         ]
     }
     ,{
-        question: 'How does seafood sound?',
+        question: 'How does chilean bass sound?',
         answer: [
-            { text: 'Amazing' ,correct: true, genre:"seafood"},
+            { text: 'Amazing' ,correct: true, genre:"chilean"},
             { nope: 'Gross' ,correct: false}
         ]
     }
     ,{
-        question: 'Want to find the nearest hispanic restaurant?',
+        question: 'Want to find the nearest mexican restaurant?',
         answer: [
-            { text: 'Definetly' ,correct: true, genre:"hispanic"},
+            { text: 'Definetly' ,correct: true, genre:"mexican"},
             { nope: 'Hard Pass' ,correct: false}
         ]
     }
@@ -119,9 +131,9 @@ var prompts = [
         ]
     }
     ,{
-        question: 'Icecream for dinner?',
+        question: 'Would you like to try something greek?',
         answer: [
-            { text: 'Why Not' ,correct: true, genre:"icecream"},
+            { text: 'Why Not' ,correct: true, genre:"greek"},
             { nope: 'Terrible Suggestion' ,correct: false}
         ]
     }
@@ -144,6 +156,90 @@ var prompts = [
         answer: [
             { text: 'yes' ,correct: true, genre:"fusion"},
             { nope: 'no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Would you like to visit an indian restaurant?',
+        answer: [
+            { text: 'Sure' ,correct: true, genre:"indian"},
+            { nope: 'Not tonight' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Have you ever had bulgogi?',
+        answer: [
+            { text: 'Yes' ,correct: true, genre:"korean"},
+            { nope: 'Yes, never again' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Want a cuban pulled pork sandwhich?',
+        answer: [
+            { text: 'Absolutely' ,correct: true, genre:"cuban"},
+            { nope: 'Not now' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Does a hawiian dinner sound adventurous?',
+        answer: [
+            { text: 'Sure' ,correct: true, genre:"hawiian"},
+            { nope: 'Too much gravy' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Is there even a restaurant near you that serves inuit food ?',
+        answer: [
+            { text: 'Why not find out' ,correct: true, genre:"inuit"},
+            { nope: 'I do not want to know' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Come on have some puerto rican food.',
+        answer: [
+            { text: 'Sure' ,correct: true, genre:"puerto+rican"},
+            { nope: 'No' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Want to eat kosher today?',
+        answer: [
+            { text: 'Why not' ,correct: true, genre:"jewish"},
+            { nope: 'Not Really' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'How would you like to try morrocan?',
+        answer: [
+            { text: 'Yes' ,correct: true, genre:"morrocan"},
+            { nope: 'Not at the moment' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'If you have tried indian you got to try pakistani.',
+        answer: [
+            { text: 'Sure' ,correct: true, genre:"pakistani"},
+            { nope: 'No I do not' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Try malay dining.',
+        answer: [
+            { text: 'I will try' ,correct: true, genre:"malay"},
+            { nope: 'No' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'You really should find out if your into saudi arabian food.',
+        answer: [
+            { text: 'Yes' ,correct: true, genre:"saudi+arabian"},
+            { nope: 'Or no' ,correct: false}
+        ]
+    }
+    ,{
+        question: 'Does norwegian sound good?',
+        answer: [
+            { text: 'Very' ,correct: true, genre:"norwegian"},
+            { nope: 'Not in the mood' ,correct: false}
         ]
     }
 
@@ -172,6 +268,10 @@ function revealPrompt(prompt) {
     tryItOut.innerText = prompt.question
     button1.innerText = prompt.answer[0].text
     button2.innerText = prompt.answer[1].nope
+}
+   
+function latlong() {
+ 
 }
 
 function yeahYeah(){
