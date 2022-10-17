@@ -1,0 +1,57 @@
+.header {
+    padding: 60px;
+    width: 1080px;
+    text-align: center;
+    background-color: chartreuse;
+    color: indigo;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.body {
+  height: 1375px;
+  width: 1195px;
+  border: solid black;
+}
+
+.row {
+  display: flex;
+}
+
+.container-1 > div {
+  height: 230px;
+  width: 350px;
+  margin: 20px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: solid black;
+ }
+
+ .row-2 {
+  display: flex;
+  flex-direction: column;
+}
+
+ .map {
+  display: flex;
+ }
+
+.container-2 > div {
+  height: 160px;
+  width: 350px;
+  margin: 20px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border: solid black;
+}
+
+
+
+
+ 
+
+
