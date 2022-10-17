@@ -13,7 +13,7 @@ startSearch.addEventListener("click", findRestaurant);
 startSearch.addEventListener("click", function(){
     sweet.setAttribute("style","display:block")
     meh.setAttribute("style","display:block")
->>>>>>>>> Temporary merge branch 2
+
     
 })
 sweet.addEventListener("click", yeahYeah);
@@ -190,13 +190,6 @@ var prompts = [
     answer: [
       { text: "Sure", correct: true, genre: "puerto+rican" },
       { nope: "No", correct: false },
-    ],
-  },
-  {
-    question: "Want to eat kosher today?",
-    answer: [
-      { text: "Why not", correct: true, genre: "isreali" },
-      { nope: "Not Really", correct: false },
     ],
   },
   {
