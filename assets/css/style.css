@@ -12,6 +12,11 @@ main {
   font-family: "Neucha", cursive;
 }
 
+.time-date {
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 25px;
+}
+
 .background-img {
   background-image: url("../images/background1.jpg");
   background-repeat: no-repeat;
@@ -64,4 +69,11 @@ ul {
   right: 0;
   background-color: rgba(0, 0, 0, 0.457);
   z-index: 1;
+}
+
+.sources ul {
+  font-size: 15px;
+}
+footer {
+  font-family: "Cinzel Decorative", cursive;
 }

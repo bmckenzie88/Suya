@@ -11,14 +11,12 @@ var modalNo = document.querySelector("#modalNo")
 var modalBackground = document.querySelector("#modalBackground")
 startSearch.addEventListener("click", findRestaurant);
 startSearch.addEventListener("click", function(){
-sweet.setAttribute("style","display:block")
-meh.setAttribute("style","display:block")
+    sweet.setAttribute("style","display:block")
+    meh.setAttribute("style","display:block")
+
+    
 })
-sweet.addEventListener("click", yeahYeah, function(){
-    sweet.setAttribute("style","display:none")
-    meh.setAttribute("style","display:none")
-    countryFacts.setAttribute("style","display:block")
-});
+sweet.addEventListener("click", yeahYeah);
 meh.addEventListener("click", reduceArray);
 var factList = document.querySelector("ul");
 var startBtn = document.querySelector("try-it-out-btn");
@@ -195,13 +193,6 @@ var prompts = [
     ],
   },
   {
-    question: "Want to eat kosher today?",
-    answer: [
-      { text: "Why not", correct: true, genre: "isreali" },
-      { nope: "Not Really", correct: false },
-    ],
-  },
-  {
     question: "How would you like to try morrocan?",
     answer: [
       { text: "Yes", correct: true, genre: "morrocan" },
@@ -216,7 +207,7 @@ var prompts = [
     ],
   },
   {
-    question: "Try malay dining.",
+    question: "Try malay dining?",
     answer: [
       { text: "I will try", correct: true, genre: "malay" },
       { nope: "No", correct: false },
@@ -225,7 +216,7 @@ var prompts = [
   {
     question: "You really should find out if your into saudi arabian food.",
     answer: [
-      { text: "Yes", correct: true, genre: "saudi+arabian" },
+      { text: "ok!", correct: true, genre: "saudi+arabian" },
       { nope: "Or no", correct: false },
     ],
   },
